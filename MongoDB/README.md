@@ -52,4 +52,24 @@ async function createUser() {
 // Call the function to create a user (or perform other operations)
 createUser();
 ```
+#### Find Duplicate Records 
+```
+db.employees.aggregate([
+  {
+    $group: {
+      _id: {
+        name: "$name",
+        department: "$department"
+      },
+      count: { $sum: 1 },
+      records: { $push: "$$ROOT" }
+    }
+  },
+  {
+    $match: {
+      count: { $gt: 1 }
+    }
+  }
+]);
+```
 
