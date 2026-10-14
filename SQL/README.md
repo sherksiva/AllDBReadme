@@ -21,3 +21,12 @@ SQL Readme
         console.log('Connected to MySQL database with ID:', connection.threadId);
     });
 ```
+#### Find Duplicate Records 
+
+```
+SELECT Name, Department, COUNT(*) AS DuplicateCount
+FROM Employees
+GROUP BY Name, Department
+HAVING COUNT(*) > 1;
+```
+
