@@ -30,3 +30,10 @@ GROUP BY Name, Department
 HAVING COUNT(*) > 1;
 ```
 
+```
+SELECT Email, COUNT(*) AS DuplicateCount
+FROM Employees
+GROUP BY Email
+HAVING COUNT(*) > 1;
+```
+
