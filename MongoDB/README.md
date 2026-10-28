@@ -72,4 +72,20 @@ db.employees.aggregate([
   }
 ]);
 ```
+#### Simple Query
+```
+db.users.aggregate([
+  {
+    $group: {
+      _id: "$email",             // Group by the field you want to check for duplicates
+      count: { $sum: 1 }         // Count the number of occurrences in each group
+    }
+  },
+  {
+    $match: {
+      count: { $gt: 1 }          // Filter out groups that only appear once
+    }
+  }
+])
+```
 
