@@ -36,4 +36,10 @@ FROM Employees
 GROUP BY Email
 HAVING COUNT(*) > 1;
 ```
+```
+SELECT email, COUNT(*) as occurrences
+FROM users
+GROUP BY email
+HAVING COUNT(*) > 1;
+```
 
